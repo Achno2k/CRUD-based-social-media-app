@@ -11,7 +11,7 @@ app = FastAPI()
 app.include_router(posts.router)
 app.include_router(users.router)
 app.include_router(auth.router)
-app.include_router(votes.router)
+app.include_router(votes.router) 
 
 origins = ["*"]    #this means all domains are allowed to access our API
 
