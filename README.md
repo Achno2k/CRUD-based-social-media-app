@@ -1,5 +1,4 @@
-# Project Title
-### FastSocial
+# FastSocial
 
 ## Live vercel link
 
