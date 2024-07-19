@@ -10,7 +10,7 @@ router = APIRouter(
     tags=['Posts']
 )
 
-@router.get("/",response_model=List[schemas.PostOut])
+@router.get("/",response_model=List[schemas.PostOut], status_code=status.HTTP_200_OK)
 def get_posts(db: Session = Depends(get_db), current_user: models.User =  Depends(oauth2.get_current_user), 
               limit: int = 10, skip: int = 0, search: Optional[str] = ""):
 
@@ -49,7 +49,7 @@ def create_posts(post: schemas.PostCreate, db: Session = Depends(get_db), curren
     return new_post
 
 
-@router.get("/{id}", response_model=schemas.PostOut)     #{id} --> this is called a path parameter (it is always a string), so convert it
+@router.get("/{id}", response_model=schemas.PostOut, status_code=status.HTTP_200_OK)     #{id} --> this is called a path parameter (it is always a string), so convert it
 def get_post(id: int, response: Response, db: Session = Depends(get_db), current_user: models.User =  Depends(oauth2.get_current_user)):
     # cur.execute("""SELECT * FROM posts WHERE id = %s """, (str(id)))
     # post = cur.fetchone()

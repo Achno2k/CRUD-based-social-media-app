@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, conint
+from pydantic import BaseModel, EmailStr
 from datetime import datetime
 from typing import Optional, Literal
 
@@ -9,6 +9,7 @@ class PostBase(BaseModel):
 
 class PostCreate(PostBase):
     pass 
+
 class UserResponse(BaseModel):
     id: int
     email: EmailStr
@@ -38,7 +39,6 @@ class UserCreate(BaseModel):
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
-
 
 class AccessToken(BaseModel):
     access_token: str
