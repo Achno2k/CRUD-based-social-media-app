@@ -11,7 +11,7 @@ from app.config import settings
 from app.oauth2 import create_token
 from app import models
 
-SQLALCHEMY_TESTDB_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}'
+SQLALCHEMY_TESTDB_URL = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}/{settings.database_name}_testing'
 
 engine = create_engine(SQLALCHEMY_TESTDB_URL, pool_pre_ping=True)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
