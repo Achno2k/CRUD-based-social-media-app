@@ -8,6 +8,19 @@ on:
             - "main"
 jobs:
     job1:
+        services:
+            postgres:
+                image: postgres
+                env:
+                    POSTGRES_PASSWORD: password123
+                    POSTGRES_DB: fastapi_db
+                ports:
+                    - 5432:5432
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
         runs-on: ubuntu-latest
         steps:
             -   name: Pulling the git repo
