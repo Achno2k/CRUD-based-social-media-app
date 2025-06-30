@@ -14,8 +14,6 @@ app.include_router(auth.router)
 
 app.include_router(votes.router)
 
-# just trying out github ;)
-
 
 origins = ["*"]    #this means all domains are allowed to access our API
 
